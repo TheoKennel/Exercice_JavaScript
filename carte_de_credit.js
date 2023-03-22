@@ -13,20 +13,11 @@ const validateCard = (cardNumber) => {
     const regexMasterCard = /^5[1-5]\d{14}$/;
     const regexDiscover = /(^6011\d{12})|(^5\d{14})$/;
     const regexDinersClub = /(^30[0-5]\d{11})|(^36\d{12}|^38\d{12})$/;
-    const JCB = /(^2131|1800\d{11})|(^35\d{14})$/
-
-    if (regexAmericanExpress.test(cardNumber)) {
-        return "American Express, numéro de carte valide";
-    } else if (regexVisa.test(cardNumber)) {
-        return "Visa, numéro de carte valide";
-    } else if (regexMasterCard.test(cardNumber)) {
-        return "MasterCard, numéro de carte valide";
-    } else if (regexDiscover.test(cardNumber)) {
-        return "Discover, numéro de carte valide";
-    } else if (regexDinersClub.test(cardNumber)) {
-        return "Diners Club, numéro de carte valide";
-    } else if (JCB.test(cardNumber)) {
-        return "JCB, numéro de carte valide";   
+    const JCB = /(^2131|1800\d{11})|(^35\d{14})$/;
+    
+    const regexCarte = /(^34|37\d{13}$)|(^4\d{12}(\d{3})?$)|(^5[1-5]\d{14}$)|(^6011\d{12})|(^5\d{14})$|(^30[0-5]\d{11})|(^36\d{12}|^38\d{12})$|(^2131|1800\d{11})|(^35\d{14})$/;
+    if (regexCarte.test(cardNumber)){
+        return "numéro de carte valide";
     } else {
         return "numéro de carte invalide";
     }
